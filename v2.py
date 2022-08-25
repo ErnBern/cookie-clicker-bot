@@ -21,15 +21,19 @@ except:
 
 buyingProduct = 0
 
+level = int(input("What level do you want to product to be before upgrading?\n"))
+
 i = 0
 
-time.sleep(1)
-while i < 200:
-    time.sleep(0.01)
-    driver.find_element(By.ID, 'bigCookie').click()
-    i += 1
+if level < 100:
+    time.sleep(1)
+    while i < level * 10:
+        time.sleep(0.01)
+        driver.find_element(By.ID, 'bigCookie').click()
+        i += 1
+    print(i)
 
-while i == 200:
+while i == level * 10:
     WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.ID, 'bigCookie'))
     ).click()
@@ -79,6 +83,6 @@ while i == 200:
             check = int(str(info[2]))
         except:
             check = int(''.join(str(info[2]).split(",")))
-        if check == 20:
+        if check == level:
             buyingProduct += 1
     except: pass
