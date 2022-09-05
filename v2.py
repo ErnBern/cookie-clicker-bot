@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 import time
 
-ser = Service('C:\Program Files (x86)\chromedriver.exe')
+ser = Service('Enter Your Chjromedriver Path')
 op = webdriver.ChromeOptions()
 driver = webdriver.Chrome(service=ser, options=op)
 
